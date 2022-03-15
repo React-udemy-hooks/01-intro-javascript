@@ -2,13 +2,13 @@
 
 0. [CreateApp react](#schema0)
 1. [Constantes y variables Let](#schema1)
-1. [Modificamos estructura del proyecto y generamos node_modules para la parte general del proyecto.](#schema2)
+1. [Template String](#schema2)
 1. [Instalamos en el front React hook form](#schema3)
 
 
 
 
-Template String
+
 
 Objetos literales
 
@@ -60,4 +60,40 @@ let dado = 4
 console.log(nombre,apellido,dado)
 dado = 6 
 console.log(nombre,apellido,dado)
+~~~
+
+<hr>
+
+<a name="schema2"></a>
+
+# 2 Template String
+- Primera version de concatenar dos strings
+~~~js
+const nombre = 'Patricia';
+const apellido = 'Carrasco';
+
+const nombreCompleto = nombre +' '+ apellido
+console.log(nombreCompleto)
+~~~
+- Segunda version 
+~~~js
+const nombreCompleto2 = `${nombre} ${apellido}`
+console.log(nombreCompleto2)
+~~~
+
+- Tercera version, en esta versión tenemos salto de líneas, al darle enter.
+~~~js
+const nombreCompleto3 = `
+${nombre} 
+${apellido}
+`
+console.log(nombreCompleto3)
+~~~
+- Función con string
+~~~js
+function getSaludo(nombre){
+    return 'Hola '+ nombre
+}
+
+console.log(`Este es un texto ${ getSaludo(nombre) }`)
 ~~~
