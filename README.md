@@ -5,7 +5,7 @@
 1. [Template String](#schema2)
 1. [Arreglos](#schema3)
 1. [Funciones](#schema4)
-
+1. [Desestructruación de objetos](#schema5)
 
 
 
@@ -206,6 +206,9 @@ const getUser = ()=>({
     })
 console.log(getUser())
 ~~~
+<hr>
+
+<a name="schema5"></a>
 
 # 5 Desestructruación de objetos
 * (sumamente importante)
