@@ -4,7 +4,7 @@
 1. [Constantes y variables Let](#schema1)
 1. [Template String](#schema2)
 1. [Arreglos](#schema3)
-
+1. [Funciones](#schema4)
 
 
 
@@ -151,4 +151,58 @@ console.log(arr6)
 Resultado
 ~~~
 (4) [2, 4, 10, 10]
+~~~
+<hr>
+
+<a name="schema4"></a>
+
+# 4 Funciones
+- Primera manera de definir una función:
+~~~js
+function saludar ( nombre){
+    return `Hola ${nombre}`
+}
+
+console.log(saludar('Patricia'))
+~~~
+No muy recomendable porque podemos asignar a `saludar` cualquier valor y sería válido, pero ya no sería una función.
+Entonces mejor usar esta manera:
+~~~js
+const saludar = function( nombre ){
+    return `Hola ${nombre}`
+}
+
+console.log(saludar('Patri'))
+~~~
+
+- Arrow function
+~~~js
+ const saludar2 =(nombre) =>{
+    return `Hola ${nombre}`
+ }
+ console.log(saludar2('Arrow'))
+ ~~~
+ Ventajas de las arrow funtions.
+~~~js
+const saludar3 =(nombre) => `Hola ${nombre}`
+ 
+console.log(saludar3('Arrow sin return'))
+~~~
+Refactorizamos la función siguiente:
+~~~js
+const getUser = ()=>{
+    return{
+        uid:'ABC134',
+        username: 'El_papi'
+    }
+}
+console.log(getUser())
+
+~~~
+~~~js
+const getUser = ()=>({
+        uid:'ABC134',
+        username: 'El_papi'
+    })
+console.log(getUser())
 ~~~
