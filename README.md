@@ -8,7 +8,7 @@
 
 
 
-Desestructruación * (sumamente importante)
+
 
 Promesas
 
@@ -205,4 +205,84 @@ const getUser = ()=>({
         username: 'El_papi'
     })
 console.log(getUser())
+~~~
+
+# 5 Desestructruación de objetos
+* (sumamente importante)
+Doc: https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+
+- Primera version
+~~~js
+const persona  ={
+    nombre: 'Tony',
+    edad:45,
+    clave:'Ironman'
+}
+
+console.log(persona.nombre)
+console.log(persona.edad)
+console.log(persona.clave)
+~~~
+- Segunda version
+Aquí asiganmos `persona.nombre` a `nameUser`
+~~~js
+const { nombre:nameUser } = persona;
+
+console.log(nameUser)
+
+~~~
+- Tercera version y la más usada
+~~~js
+const { nombre, edad, clave } = persona
+console.log(nombre,edad,clave)
+~~~
+
+- Desectructuración en los argumentos
+~~~js
+const retornaPersona=({nombre})=>{
+    console.log(nombre)
+}
+
+retornaPersona(persona)
+~~~
+- Asignar un valor por defecto a una propiedad que no tiene el elemento principal
+~~~js
+const retornaPersona2=({nombre, rango = 'Capitan'})=>{
+    console.log(nombre, rango)
+}
+
+retornaPersona2(persona)
+~~~
+- si existe la propiedad usa esa propiedad del elemento pincipal
+~~~js
+const persona2  ={
+    nombre: 'Tony',
+    edad:45,
+    clave:'Ironman',
+    rango: 'Soldado'
+}
+const retornaPersona3=({nombre, rango = 'Capitan'})=>{
+    console.log(nombre, rango)
+}
+
+retornaPersona3(persona2)
+~~~
+- Objeto dentro de un objeto
+~~~js
+const useContext=({ clave,edad, nombre, rango = 'Capitan'})=>{
+    console.log(nombre, rango)
+    return {
+        nombreClave: clave,
+        anios: edad,
+        latlng:{
+            lat:3,
+            lng:-3
+        }
+    }
+}
+
+
+
+const { nombreClave, anios, latlng:{ lat,lng } }  = useContext(persona)
+console.log(nombreClave,anios,lat,lng )
 ~~~
