@@ -3,16 +3,10 @@
 0. [CreateApp react](#schema0)
 1. [Constantes y variables Let](#schema1)
 1. [Template String](#schema2)
-1. [Instalamos en el front React hook form](#schema3)
+1. [Arreglos](#schema3)
 
 
 
-
-
-
-Objetos literales
-
-Arreglos
 
 Desestructruación * (sumamente importante)
 
@@ -96,4 +90,65 @@ function getSaludo(nombre){
 }
 
 console.log(`Este es un texto ${ getSaludo(nombre) }`)
+~~~
+
+<hr>
+
+<a name="schema3"></a>
+
+# 3 Arreglos
+Definición de un array, no se usa mucho
+~~~js
+const arr = new Array();
+console.log(arr)
+~~~
+Mejor de esta manera.
+~~~js
+const arr2 =[1]
+arr2.push(2)
+console.log(arr2)
+~~~
+A la hora de añadir elementos a un array no es aconsejable usar `push` porque modifica el array
+~~~js
+let arr3 = arr2
+arr3.push(5)
+console.log(arr2)
+console.log(arr3)
+~~~
+Resultado:
+~~~
+(3) [1, 2, 5]
+(3) [1, 2, 5]
+~~~
+Así que usamos:
+~~~js
+let arr4 = [arr2, 5]
+console.log(arr2)
+console.log(arr4)
+~~~
+Resultado:
+~~~
+[Array(3), 5]
+~~~
+
+Pero para obtener todo el array anterior más el elemento nuevo usamos:
+~~~js
+let arr5 = [...arr2, 5]
+console.log(arr2)
+console.log(arr5)
+~~~
+Resultado
+~~~
+(4) [1, 2, 5, 5]
+~~~
+Usando map
+~~~js
+let arr6 = arr5.map(function(number){
+    return number * 2
+});
+console.log(arr6)
+~~~
+Resultado
+~~~
+(4) [2, 4, 10, 10]
 ~~~
