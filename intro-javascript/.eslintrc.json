@@ -23,7 +23,8 @@
         "semi": 0,
         "quotes":"off",
         "eol-last":"off",
-        "array-bracket-spacing":"off"
+        "array-bracket-spacing":"off",
+        "object-curly-spacing":"off" 
        
     }
 }

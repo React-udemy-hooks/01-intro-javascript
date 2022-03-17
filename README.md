@@ -7,11 +7,11 @@
 1. [Funciones](#schema4)
 1. [Desestructruación de objetos](#schema5)
 1. [Desestructruación de arrays](#schema6)
+1. [Import, export, find, filter](#schema7)
 
 
 
 
-Promesas
 
 Fetch API
 
@@ -331,3 +331,41 @@ const [nombre, setNombre] = useState('yo misma')
 console.log(nombre)
 setNombre();
 ~~~
+<hr>
+
+<a name="schema7"></a>
+
+# 7 Import, export, find, filter
+
+- Find
+~~~js
+import { heroes } from './data/heroes'
+
+console.log(heroes)
+
+const getHeroeById = (id) => {
+  return heroes.find((heroe)=>heroe.id===id)
+}
+
+console.log(getHeroeById(2))
+~~~
+
+- Filter
+~~~js
+const getHeroeByOwner = (owner) => {
+  return heroes.filter((heroe) => heroe.owner === owner)
+}
+console.log(getHeroeByOwner("DC"))
+~~~
+- Export, import
+`heroes.js`
+~~~js
+export const owners = ['DC', 'Marvel'];
+export default heroes;
+~~~
+`index.js`
+~~~js
+import heroes, { owners } from './data/heroes'
+~~~
+
+# 8 Promesas
