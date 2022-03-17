@@ -8,7 +8,7 @@
 1. [Desestructruación de objetos](#schema5)
 1. [Desestructruación de arrays](#schema6)
 1. [Import, export, find, filter](#schema7)
-
+1. [Promesas](#schema8)
 
 
 
@@ -368,4 +368,78 @@ export default heroes;
 import heroes, { owners } from './data/heroes'
 ~~~
 
+<hr>
+
+<a name="schema8"></a>
+
 # 8 Promesas
+- Primera versión
+~~~js
+const promesa = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    console.log('2 segundos después')
+    resolve();
+  }, 2000)
+});
+promesa.then(() => {
+  console.log('then de la promesa')
+});
+~~~
+- Segunda versión
+~~~js
+const promesa2 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    const heroe = getHeroeById(2)
+    resolve(heroe)
+  }, 2000);
+});
+promesa2.then((heroe) => {
+  console.log("en el then", heroe);
+});
+~~~
+- Manejando un error
+~~~js
+const promesa3 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    const heroe = getHeroeById(2);
+    resolve("no se pudo encontrar héroe");
+  }, 2000);
+});
+promesa3.then((heroe) => {
+  console.log("en el then", heroe);
+}).catch((error)=>{console.warn(error)})
+~~~
+
+- Enviando argumentos a la promesa
+~~~js
+const getHeroeByIdAsync = (id) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const heroe = getHeroeById(id);
+      resolve(heroe);
+    }, 2000);
+  });
+}
+
+getHeroeByIdAsync(4).then((heroe) => {
+  console.log('heroe', heroe)
+})
+~~~
+- Controlando errores
+~~~js
+const getHeroeByIdAsync = (id) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const heroe = getHeroeById(id);
+      if (heroe) {
+        resolve(heroe);
+      } else {
+        reject('no encontrado')
+      }
+    }, 2000);
+  });
+}
+
+getHeroeByIdAsync(4).then((heroe) => {console.log('heroe', heroe)
+}).catch(err => console.warn(err))
+~~~
