@@ -6,6 +6,7 @@
 1. [Arreglos](#schema3)
 1. [Funciones](#schema4)
 1. [Desestructruación de objetos](#schema5)
+1. [Desestructruación de arrays](#schema6)
 
 
 
@@ -288,4 +289,45 @@ const useContext=({ clave,edad, nombre, rango = 'Capitan'})=>{
 
 const { nombreClave, anios, latlng:{ lat,lng } }  = useContext(persona)
 console.log(nombreClave,anios,lat,lng )
+~~~
+<hr>
+
+<a name="schema6"></a>
+
+# 6 Desestructruación de arrays
+- Primera versión
+~~~js
+const personajes = ['Goku', 'Otro', 'coco']
+
+console.log(personajes[0])
+
+const [ , , p3 ] = personajes;
+
+console.log(p3)
+~~~
+- Segunda versión
+~~~js
+const retornoArreglo = () => {
+  return ["ABC", 123];
+};
+
+const [ letras, numeros ] = retornoArreglo();
+console.log(letras, numeros);
+~~~
+- Tercera versión, con una función dentro del array
+~~~js
+const useState = (valor) => {
+  return [valor, ()=>{
+    console.log('Hola mundo')
+  }]
+}
+const arr = useState('Patri')
+
+arr[1]();
+~~~
+- Mejorando la tercera versión
+~~~js
+const [nombre, setNombre] = useState('yo misma')
+console.log(nombre)
+setNombre();
 ~~~
