@@ -9,11 +9,12 @@
 1. [Desestructruación de arrays](#schema6)
 1. [Import, export, find, filter](#schema7)
 1. [Promesas](#schema8)
+1. [Fetch API](#schema9)
 
 
 
 
-Fetch API
+
 
 Ternarios
 
@@ -442,4 +443,49 @@ const getHeroeByIdAsync = (id) => {
 
 getHeroeByIdAsync(4).then((heroe) => {console.log('heroe', heroe)
 }).catch(err => console.warn(err))
+~~~
+
+<hr>
+
+<a name="schema9"></a>
+
+# 9 Fetch API
+
+Doc: https://developer.mozilla.org/es/docs/Web/API/Fetch_API
+~~~js
+const peticion = fetch(`https://api.giphy.com/v1/gifs/random?api_key=${apiKey}`);
+
+peticion
+  .then((res) => res.json())
+  .then(({ data }) => {
+    console.log(data.images.original.url)
+  })
+  .catch(console.warm);
+
+~~~
+
+- Utilizando desctructuración para obtener la url
+~~~js
+peticion
+  .then((res) => res.json())
+  .then(({ data }) => {
+    const { url } = data.images.original
+    console.log(url)
+  })
+  .catch(console.warm);
+~~~
+
+- Creando la imagen para el html
+~~~js
+peticion
+  .then((res) => res.json())
+  .then(({ data }) => {
+    const { url } = data.images.original
+    const img = document.createElement('img')
+    img.src = url
+
+    document.body.append(img)
+    console.log(url)
+  })
+  .catch(console.warm);
 ~~~
