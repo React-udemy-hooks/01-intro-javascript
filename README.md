@@ -10,13 +10,8 @@
 1. [Import, export, find, filter](#schema7)
 1. [Promesas](#schema8)
 1. [Fetch API](#schema9)
-
-
-
-
-
-
-Ternarios
+1. [Async - Await](#schema10)
+1. [Ternarios](#schema11)
 
 
 
@@ -490,6 +485,10 @@ peticion
   .catch(console.warm);
 ~~~
 
+<hr>
+
+<a name="schema10"></a>
+
 # 10 Async - Await
 - Con new Promise
 ~~~js
@@ -526,3 +525,27 @@ const getImage = async () => {
 getImage()
 ~~~
 - Try - Catch
+~~~js
+const getImage = async () => {
+  try {
+    const apiKey = "api_key";
+    const res = await fetch(`https://api.giphy.com/v1/gifs/random?api_key=${apiKey}`);
+    const { data } = await res.json();
+    const { url } = data.images.original;
+    const img = document.createElement("img");
+    img.src = url;
+    document.body.append(img);
+  } catch (error) {
+    // manejo del error
+    console.log(error)
+  }
+}
+
+getImage()
+~~~
+
+<hr>
+
+<a name="schema11"></a>
+
+# 11 Ternarios
