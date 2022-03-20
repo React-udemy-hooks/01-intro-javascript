@@ -549,3 +549,29 @@ getImage()
 <a name="schema11"></a>
 
 # 11 Ternarios
+
+- Forma clásica
+~~~js
+const activo = true;
+
+let mensaje = 'hola';
+
+if (activo) {
+  mensaje = 'Activo'
+} else {
+  mensaje = 'Incativo'
+}
+
+console.log(mensaje)
+~~~
+
+- Ternario
+~~~js
+const mensaj = (activo) ? 'Activo' : 'Inactivo'
+
+console.log(mensaj)
+
+const mens1 = (activo === true) && 'Activo'
+const mens = activo && 'Activo'
+console.log(mens)
+~~~
