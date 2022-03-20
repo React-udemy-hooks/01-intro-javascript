@@ -18,7 +18,7 @@
 
 Ternarios
 
-Async - Await
+
 
 <hr>
 
@@ -489,3 +489,40 @@ peticion
   })
   .catch(console.warm);
 ~~~
+
+# 10 Async - Await
+- Con new Promise
+~~~js
+
+const getImagePromesa = () => {
+  const promesa = new Promise((resolve, reject) => {
+    resolve('Holssss')
+  })
+  return promesa
+}
+
+getImagePromesa().then(console.log)
+~~~
+- Con async/await
+~~~js
+const getImage = async () => {
+  return 'hloikgśñghsñlkdfgsdfñgl'
+}
+
+console.log(getImage())
+~~~
+- Cambiando el ejercicio fetch-api
+~~~js
+const getImage = async () => {
+  const apiKey = "api_key";
+  const res = await fetch(`https://api.giphy.com/v1/gifs/random?api_key=${apiKey}`);
+  const { data } = await res.json();
+  const { url } = data.images.original;
+  const img = document.createElement("img");
+  img.src = url;
+  document.body.append(img);
+}
+
+getImage()
+~~~
+- Try - Catch
